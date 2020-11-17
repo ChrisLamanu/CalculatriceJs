@@ -3,19 +3,21 @@ let varLeft = document.getElementById("varLeft");
 let varMid = document.getElementById("varMid");
 let varRight = document.getElementById("varRight");
 let result = document.getElementById("result");
+let lastResult;
 
 let switchCase = false;
 let switchComma = false;
+let isStop = false;
 
 allValue.forEach(e => e.addEventListener("click", function() {
     console.log(e.innerHTML);
-
-    if (e.innerHTML == "÷" || e.innerHTML == "+" || e.innerHTML == "-" || e.innerHTML == "x") {   
-        varMid.innerHTML = `${e.innerHTML}`;
+    let a = e.innerHTML;
+    if (a == "÷" || a == "+" || a == "-" || a == "x") {   
+        varMid.innerHTML = `${a}`;
         switchCase = true;
         switchComma = false;
     }
-    else if (e.innerHTML == "C") {
+    else if (a == "C") {
         resetValue();
     }
     else if (!switchCase && e.innerHTML != "=" && e.innerHTML != ",") {
@@ -32,27 +34,32 @@ allValue.forEach(e => e.addEventListener("click", function() {
         else {
             varRight.innerHTML += `${e.innerHTML}`;
             switchComma = true;
-        }
-        
+        }    
     }
-    else {
-        let a = parseInt(varLeft.innerHTML);
+    else if (e.innerHTML == "=") {
+        let a = parseFloat(varLeft.innerHTML.replace(",", "."));
         let b = varMid.innerHTML;
-        let c = parseInt(varRight.innerHTML);
+        let c = parseFloat(varRight.innerHTML.replace(",", "."));
+        let d;
         switch (b) {
             case "÷":
-                result.innerHTML = a / c;
+                d =  a / c;
+                result.innerHTML = d.toString().replace(".", ",");
                 break;
             case "+":
-                result.innerHTML = a + c;
+                d =  a + c;
+                result.innerHTML = d.toString().replace(".", ",");
                 break;
             case "-":
-                result.innerHTML = a - c;
+                d =  a - c;
+                result.innerHTML = d.toString().replace(".", ",");
                 break;
             case "x":
-                result.innerHTML = a * c;
+                d =  a * c;
+                result.innerHTML = d.toString().replace(".", ",");
                 break;
         }
+        lastResult = result;
     }
 }));
 
@@ -62,4 +69,5 @@ function resetValue() {
     varRight.innerHTML = ``;
     result.innerHTML = ``;
     switchCase = false;
+    switchComma = false;
 }
