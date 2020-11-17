@@ -1,0 +1,72 @@
+body {
+    height: 100vh;
+    font-weight: bold;
+    font-size: xx-large;
+    color: #000000d1;
+}
+
+/* Global variables */
+:root {
+    --c-33: calc(100% / 3);
+
+    --border-color: #464646;
+    --button-bg: #0000002b;
+}
+#varLeft, #varMid, #varRight, #result {
+    overflow: hidden;
+}
+#result {
+    width: 97%;
+}
+
+#mainCol {
+    background-image: url(../img/920426.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right bottom;
+}
+button {
+    font-weight: bold;
+    font-size: xx-large;
+    color: #000000d1;
+}
+button:hover {
+    background-color: #00000085;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Custom border */
+.c-default-b {
+    border: 1px solid var(--border-color);
+    border-radius: .25rem;
+}
+/* Custom color */
+.c-c-default-btn {
+    background-color: var(--button-bg);
+}
+/* Custom height */
+.c-h-33 {
+    height: var(--c-33);
+}
+.c-h-70 {
+    height: 70%;
+}
+.c-h-90 {
+    height: 90%;
+}
+/* Custom width */
+.c-w-33 {
+    width: var(--c-33);
+}
+.c-W-90 {
+    width: 90%;
+}
