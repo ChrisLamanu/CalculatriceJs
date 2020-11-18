@@ -2,22 +2,25 @@ body {
     height: 100vh;
     font-weight: bold;
     font-size: xx-large;
+    background-color: rgba(36, 36, 36, 1);
     color: #000000d1;
 }
 
 /* Global variables */
 :root {
     --c-33: calc(100% / 3);
+    --c-66: calc(100% / 1.5);
 
     --border-color: #464646;
-    --button-bg: #0000002b;
+    /* --button-bg: #0000002b; */
+    --button-dark: rgba(0, 0, 0, 0.5);
+    --button-blue: rgba(39, 176, 150, 0.5);
+    --button-light: rgba(255, 255, 255, 0.5);
 }
 #varLeft, #varMid, #varRight, #result {
     overflow: hidden;
 }
-#result {
-    width: 97%;
-}
+
 
 #mainCol {
     background-image: url(../img/920426.png);
@@ -27,8 +30,9 @@ body {
 }
 button {
     font-weight: bold;
-    font-size: xx-large;
+    font-size: 3rem;
     color: #000000d1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 button:hover {
     background-color: #00000085;
@@ -50,12 +54,27 @@ button:hover {
     border-radius: .25rem;
 }
 /* Custom color */
-.c-c-default-btn {
-    background-color: var(--button-bg);
+.c-c-dark-btn {
+    background-color: var(--button-dark);
+}
+.c-c-blue-btn {
+    background-color: var(--button-blue);
+}
+.c-c-light-btn {
+    background-color: var(--button-light);
 }
 /* Custom height */
+/* .c-h-11 {
+    height: var(--c-11);
+}
+.c-h-22 {
+    height: var(--c-22);
+} */
 .c-h-33 {
     height: var(--c-33);
+}
+.c-h-66 {
+    height: var(--c-66);
 }
 .c-h-70 {
     height: 70%;
@@ -67,6 +86,19 @@ button:hover {
 .c-w-33 {
     width: var(--c-33);
 }
-.c-W-90 {
+.c-w-90 {
     width: 90%;
+}
+.c-w-95 {
+    width: 95%;
+}
+.c-w-975 {
+    width: 97.5%;
+}
+
+
+@media screen and (max-width: 500px) {
+    button {
+        font-size: 2rem;
+    }
 }
